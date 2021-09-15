@@ -1,0 +1,6 @@
+---
+  - name: "first playbook"
+    hosts: duts
+    tasks:
+    - name: "hello"
+      shell: "echo Hello Armbian"
