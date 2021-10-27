@@ -1,0 +1,21 @@
+---
+
+- name: first check
+  shell: echo 'check init!'
+
+- name: user creation
+  shell: test $(ls -l /home | wc -l) -gt 0 | echo "done"
+  register: initialized
+
+- name: get uptime
+  shell: uptime
+  register: uptime
+
+- name: get board name
+  shell: cat /etc/armbian-release | grep BOARD | head -1 | cut -d "=" -f2
+  register: board_name
+
+- name: get board kernel
+  shell: uname -sr
+  register: board_kernel
+

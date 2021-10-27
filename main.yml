@@ -3,4 +3,9 @@
     hosts: duts
     tasks:
     - name: "hello"
-      shell: "echo Hello Armbian"
+      shell: echo 'Hello Armbian'
+      when: ansible_os_family == 'Debian'
+
+    roles:
+      - initialize
+      - tests
